@@ -3,9 +3,6 @@ class RoomsController < ApplicationController
     # @friendships = Friendship.where(to_user_id: current_user.id, from_user_id: current_User.id)
     @user = current_user
     @friendships = @user.friends
-    @friendships.each do |friendship|
-    @rooms = Room.where(friendship_id: friendship.id)
-    end
     render "room-index.js.erb"
   end
 
