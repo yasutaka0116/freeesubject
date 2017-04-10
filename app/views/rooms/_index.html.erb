@@ -1,0 +1,15 @@
+<%= link_to talks_show_path(room.id) ,remote: true do %>
+<li class="talk-room">
+<div class="talk-room-detail">
+<div class="user-image">
+<%= image_tag finduser(room.id).avatar.url(:thumb) ,class: "user-avatar" %>
+</div>
+<div class="user-info">
+<div class="user-name"><%= finduser(room.id).name %></div>
+<div class="last-talk"><%= room.talks.last.message%></div>
+</div>
+<div class="date">33.3.</div>
+<div class="talk-count"></div>
+</div>
+</li>
+<% end %>

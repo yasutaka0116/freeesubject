@@ -1,0 +1,78 @@
+/*ログイン画面view*/
+p{
+  margin: 0;
+  padding: 0;
+}
+
+.toplogo{
+  text-align: center;
+  margin-top :100px;
+  color:green;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.login-form{
+  margin-top:50px;
+  /*height: 130px;*/
+  width: 280px;
+  margin:0 auto;
+  box-sizing: border-box;
+}
+.login-form p{
+  margin: 0;
+  padding: 0;
+}
+
+.main-outer .actions{
+  width: 280px;
+  margin: 0 auto;
+}
+
+.sign-up{
+  width: 280px;
+  margin: 0 auto;
+}
+
+
+
+/*ユーザー情報 */
+
+.friend-info{
+  width:300px;
+  height:300px;
+  margin:0 auto;
+  margin-top:100px;
+}
+
+.friend-info-top{
+  width: 150px;
+  height: 170px;
+  margin:0 auto;
+  margin-bottom:30px;
+}
+
+
+.friend-info-down{
+  width:100%;
+  height: 100px;
+}
+
+
+.friend-info-avatar{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.friend-info-name  {
+  text-align: center;
+}
+
+.friend-info-add{
+  height:50px;
+  border-bottom-style: ridge;
+}
+
+.friend-info-block{
+  height:50px;
+}

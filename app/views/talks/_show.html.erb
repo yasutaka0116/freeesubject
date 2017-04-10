@@ -1,0 +1,29 @@
+<%=  form_tag('rooms/:id/talks/post', :remote => true) do %>
+<div class="talk-user">
+  <div class="talk-user-image"><%= image_tag finduser(talks[0].room.id).avatar.url(:thumb), class: "user-avatar" %></div>
+  <div class="talk-user-name"><%= finduser(talks[0].room.id).name %></div>
+<div class="talk-session">
+<!-- <div class="talk-session-date"> -->
+  <!-- <div class="session-date"><p>3月23日</p></div> -->
+<% talks.each do |talk| %>
+  <%= hidden_field_tag 'room_id', talk.room.id %>
+<% if finduser(talk.room.id) == current_user && !(talk.nil?)%>
+  <div class="talk-session-you">
+    <p class="talk-content-you"><%= talk.message %>></p>
+    <div>aaaaaa</div>
+  </div>
+<% elsif !(finduser(talk.room.id) == current_user) && !(talk.nil?)%>
+  <div class="talk-session-me">
+    <p class="talk-content-me"><%= talk.message %></p>
+    <span>aaaaaa</span>
+  </div>
+<% end %>
+<% end %>
+</div>
+</div>
+<div class="talk-text">
+        <%= text_field_tag 'message' %>
+        <%= submit_tag 'send' %>
+<% end %>
+ </div>
+

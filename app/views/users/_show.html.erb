@@ -1,0 +1,22 @@
+<div class="friend-info">
+  <div class="friend-info-top">
+    <div class="friend-info-avatar">
+      <%= image_tag user.avatar.url(:medium) ,class: "user-avatar" %>
+    </div>
+    <div class="friend-info-name">
+      <P><%= user.name %></P>
+    </div>
+    </div>
+    <% if friendship_method(user.id)  %>
+      <div class="friend-info-down">
+        <div class="friend-info-add">
+          <a href="">友達追加</a>
+          <%= link_to "友達追加", friendships_create_path(user) %>
+        </div>
+    <% else %>
+      <div class="friend-info-block">
+          <a href="">ブロック</a>
+      </div>
+    <% end %>
+  </div>
+</div>

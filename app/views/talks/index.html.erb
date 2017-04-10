@@ -1,0 +1,78 @@
+<header>
+  <div class="head-outer">
+    <div class="icon">
+      LINE
+    </div>
+    <div class="user">
+    </div>
+  </div>
+</header>
+<div clss="container">
+  <div class="main-outer">
+    <div class="outer-left">
+      <div class="search-form">
+        <input class="input-search" type="text" placeholder="トークルームを検索する">
+      </div>
+      <div class="talk-list">
+        <ul class="content">
+        <li class="hide">
+          <ul class="talklist" id="user-list" >
+           <%= render partial: 'rooms/index', collection: @rooms ,as: 'room'%>
+          </ul>
+          </li>
+          <li class="hide">
+          <ul class="talklist" id="user-list">
+           <%= render partial: 'friendships/index', collection: @friendships ,as: 'friendship'%>
+          </ul>
+          </li>
+           <li class="hide">
+          <ul class="talklist" id="user-list">
+            <%= render partial: 'users/index', collection: @users , as: 'user'%>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="talk-tab">
+        <ul class="talk-tab-ul tab">
+          <li class="talk-tab-li select">
+            <%= link_to 'トーク',rooms_path ,remote: true %>
+          </li>
+          <li class="talk-tab-li" >
+            <%= link_to 'フレンドユーザー',friendships_path ,remote: true %>
+          </li>
+          <li class="talk-tab-li">
+            <%= link_to 'ユーザー',users_path , remote: true %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="outer-right" id="outer-right">
+      <% if request.xhr? %>
+        <%= render partial: 'talks/show', locals: { talks: @talks} %>
+        <%= render partial: 'users/show', locals: { user: @user} %>
+        <%= render partial: 'friendships/show',  locals: { user: @user} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id='messagelog'></div>
+
+
+<!-- <script type="text/javascript">
+// Pusher.logToConsole = true;
+
+var pusher = new Pusher('ef92d3949d0199e893a6', {
+      cluster: 'ap1',
+      encrypted: true
+    });
+
+  var channel = pusher.subscribe('general_channel');
+    channel.bind('chat_event', function(data) {
+      alert(data.message);
+      var messagelog = document.getElementById('messagelog');
+      var messagediv = document.createElement('div');
+      messagediv.innerHTML = data.message;
+      messagelog.appendChild(messagediv);
+    });
+</script>
+ -->
