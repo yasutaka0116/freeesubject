@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
     friends_of_from_user+friends_of_to_user
   end
 
-
-
+  def friendships
+    friendships_of_from_user+friendships_of_to_user
+  end
 
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "50x50>" }
   validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }

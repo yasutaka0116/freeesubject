@@ -4,8 +4,18 @@ ul{
 }
 
 body{
-    background:#c0d8e5;
+    background:#eee;
   }
+a{
+              -webkit-appearance: none;
+              display:block;
+              text-decoration: none;
+              color:black;
+}
+a:hover{
+  background:#eee;
+}
+
 
 
   header{
@@ -31,7 +41,36 @@ body{
     .user{
       position:absolute;
       top:20px;
+      right:30px;
+    }
+    .user .name{
+              color:white;
+              font-weight: 600;
+    }
+    .sankaku{
+      position:absolute;
+      top:28px;
       right:10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 8px 0 8px;
+      border-color: #3f3f3f transparent transparent transparent;
+    }
+    .sankaku:hover{
+      border-color: #ffffff transparent transparent transparent;
+    }
+    .info{
+       display: none;
+       width:100px;
+       height:100px;
+       position:absolute;
+       top:40px;
+       right:-20px;
+       background: white;
+    }
+    .info ul{
+        list-style-type :none;
     }
 
     .user-info{
@@ -62,14 +101,14 @@ body{
               /*background-color: red;*/
               padding-left: 30px;
             }
-  input{
+  .input-search{
               -webkit-appearance: none;
               height: 40px;
               width:295px;
        }
   .talk-list{
               height:550px;
-              overflow: scroll;
+              overflow: auto;
 
   }
   .talklist{
@@ -98,11 +137,15 @@ body{
              height: 50px;
   }
 
-  .user-avatar{
+  .user-thumb{
              border-radius: 50%;
              height:50px;
              width: 50px;
-
+  }
+  .user-medium{
+            border-radius: 50%;
+             height:150px;
+             width: 150px;
   }
   .user-info{
              padding-left:70px;
@@ -182,15 +225,17 @@ body{
   .talk-user-name{
               font-weight: 600;
               position:absolute;
-              left:60px;
-              top:10;
+              left:70px;
+              top:15px;
               line-height: 1;
               font-size: 13px;
   }
   .talk-session{
-              height:550px;
-              width:700px;
-              overflow: scroll;
+            position:absolute;
+            top:50px;
+            height:520px;
+            width:700px;
+            overflow: auto;
   }
 
   .talk-session-date{
@@ -217,7 +262,7 @@ body{
     padding:0;
     width:550px;
     word-wrap:break-word;
-     background:#c0d8e5;
+     background:#eee;
      border-radius:5px;
   }
   .talk-content-me{
@@ -225,7 +270,7 @@ body{
     padding:0;
     width:550px;
     word-wrap:break-word;
-     background:#2e8b57;
+     background:#eee;
      border-radius:5px;
   }
   .talk-session-me{
@@ -236,7 +281,8 @@ body{
 
   .talk-text{
     height: 70px;
-    background-color: red;
+    position:relative;
+    top:550px;
   }
   textarea{
               -webkit-appearance: none;
@@ -248,10 +294,20 @@ body{
 
 .tab{overflow:hidden;}
 
-.tab li{background:#ccc;}
 
-.tab li.selected {background:#eee;}
+.tab li.select{background:#eee;}
 
-.content li{background:#eee;}
 
 .hide {display:none;}
+
+
+ .talk-text #message{
+              -webkit-appearance: none;
+              height:50px;
+              width:450px;
+       }
+  .talk-text #send{
+              -webkit-appearance: none;
+              height:50px;
+              width:100px;
+  }

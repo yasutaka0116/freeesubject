@@ -4,6 +4,20 @@
       LINE
     </div>
     <div class="user">
+      <p class="name"><%= current_user.name %></p>
+    </div>
+    <div class="sankaku"></div>
+    <div class="info">
+      <ul>
+        <li>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        </li>
+        <li>
+          <%= link_to '編集', edit_user_registration_path %>
+        </li>
+        <li>
+        </li>
+      </ul>
     </div>
   </div>
 </header>
@@ -15,20 +29,20 @@
       </div>
       <div class="talk-list">
         <ul class="content">
-        <li class="hide">
-          <ul class="talklist" id="user-list" >
-           <%= render partial: 'rooms/index', collection: @rooms ,as: 'room'%>
-          </ul>
+          <li>
+            <ul class="talklist" id="room-list" >
+             <%= render partial: 'rooms/index', collection: @rooms ,as: 'room'%>
+            </ul>
           </li>
           <li class="hide">
-          <ul class="talklist" id="user-list">
-           <%= render partial: 'friendships/index', collection: @friendships ,as: 'friendship'%>
-          </ul>
+            <ul class="talklist" id="friend-list">
+              <%= render partial: 'friendships/index', collection: @friendships ,as: 'friendship'%>
+            </ul>
           </li>
-           <li class="hide">
-          <ul class="talklist" id="user-list">
-            <%= render partial: 'users/index', collection: @users , as: 'user'%>
-          </ul>
+          <li class="hide">
+            <ul class="talklist" id="user-list">
+              <%= render partial: 'users/index', collection: @users , as: 'user'%>
+            </ul>
           </li>
         </ul>
       </div>
@@ -38,7 +52,7 @@
             <%= link_to 'トーク',rooms_path ,remote: true %>
           </li>
           <li class="talk-tab-li" >
-            <%= link_to 'フレンドユーザー',friendships_path ,remote: true %>
+            <%= link_to 'フレンド',friendships_path ,remote: true %>
           </li>
           <li class="talk-tab-li">
             <%= link_to 'ユーザー',users_path , remote: true %>
@@ -55,24 +69,3 @@
     </div>
   </div>
 </div>
-<div id='messagelog'></div>
-
-
-<!-- <script type="text/javascript">
-// Pusher.logToConsole = true;
-
-var pusher = new Pusher('ef92d3949d0199e893a6', {
-      cluster: 'ap1',
-      encrypted: true
-    });
-
-  var channel = pusher.subscribe('general_channel');
-    channel.bind('chat_event', function(data) {
-      alert(data.message);
-      var messagelog = document.getElementById('messagelog');
-      var messagediv = document.createElement('div');
-      messagediv.innerHTML = data.message;
-      messagelog.appendChild(messagediv);
-    });
-</script>
- -->

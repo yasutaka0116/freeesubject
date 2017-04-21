@@ -4,4 +4,5 @@ class Friendship < ActiveRecord::Base
   has_one :room, dependent: :destroy
    scope :search_with_from_id, ->(id) { where(from_user_id: id) }
    scope :search_with_to_id, ->(id) { where(to_user_id: id) }
+
 end

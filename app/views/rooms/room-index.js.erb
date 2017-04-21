@@ -1,1 +1,3 @@
-$('#user-list').html("<%= j(render partial: 'rooms/index', collection: @rooms, as: 'room') %>");
+$('#room-list').empty();
+$('#room-list').html("<%= j(render partial: 'rooms/index', collection: @rooms, as: 'room') %>");
+$('#outer-right').empty();

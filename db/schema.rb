@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408170248) do
+ActiveRecord::Schema.define(version: 20170410110909) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "from_user_id", limit: 4
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170408170248) do
     t.text     "message",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "sender_id",  limit: 4
   end
 
   add_index "talks", ["room_id"], name: "fk_rails_615f9d106e", using: :btree

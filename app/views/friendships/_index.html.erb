@@ -1,12 +1,12 @@
 <%= link_to friendship_path(friendship.id) ,remote: true do %>
-<li class="talk-room">
-  <div class="talk-room-detail">
-    <div class="user-image">
-    <%= image_tag friendship.avatar.url(:thumb) ,class: "user-avatar" %>
+  <li class="talk-room">
+    <div class="talk-room-detail">
+      <div class="user-image">
+        <%= image_tag friendship.avatar.url(:thumb) ,class: "user-thumb" %>
+      </div>
+      <div class="user-info">
+        <div class="user-name"><%= friendship.name %></div>
+      </div>
     </div>
-    <div class="user-info">
-      <div class="user-name"><%= friendship.name %></div>
-    </div>
-  </div>
-</li>
+  </li>
 <% end %>

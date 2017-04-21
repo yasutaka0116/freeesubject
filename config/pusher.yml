@@ -1,4 +1,4 @@
-# development:
-# app_id: 325661
-# access_key: ef92d3949d0199e893a6
-# access_key_secret: 7d127bd5d98dfe99ec2c
+development:
+  app_id: 325661
+  access_key: ef92d3949d0199e893a6
+  access_key_secret: 7d127bd5d98dfe99ec2c

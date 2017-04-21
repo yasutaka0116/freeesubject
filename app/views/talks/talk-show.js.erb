@@ -1,1 +1,40 @@
 $('#outer-right').html("<%= j(render partial: 'talks/show', locals: {talks: @talks} )%>");
+
+$('.talk-room-ajax').on('ajax:success', function(){
+        // var index = $('.tab li').index(this);
+        var index = $('.talk-room-ajax').index(this);
+        var aa = $('.room_id').eq(index).val();
+
+
+    var pusher = new Pusher('<%= @pusher_access_key %>',{
+        cluster: 'ap1',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe(aa+'_channel');
+    console.log(channel);
+
+    channel.bind('chat_event', function(data) {
+        console.log(data);
+        var my_id = $('#sender_id').val();
+
+        var messagelog = document.getElementById('talk-session-id');
+        var messagediv = document.createElement('div');
+        messagediv.className = data.sender_id === my_id ? 'talk-session-me' : 'talk-session-you';
+        var paragraphElement = document.createElement("p");
+        paragraphElement.className = data.sender_id === my_id ? 'talk-content-me' : 'talk-content-you';
+        var textNode = document.createTextNode(data.message);
+        paragraphElement.appendChild(textNode);
+
+        var spanElement = document.createElement("span");
+        var timeNode = document.createTextNode(data.created_at);
+        spanElement.appendChild(timeNode);
+
+        messagediv.appendChild(paragraphElement);
+        messagediv.appendChild(spanElement);
+        messagelog.appendChild(messagediv);
+
+        $('#talk-session-id').animate({scrollTop: $('#talk-session-id')[0].scrollHeight}, 'fast');
+
+    });
+});
